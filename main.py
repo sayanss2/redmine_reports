@@ -15,21 +15,24 @@ print("================================================")
 
 
 # issues = red.issue.filter(cf_2='me', status_id='*', updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 
-issues = red.issue.filter(cf_2='me', status_id=['1','2','3','4','5','6','7','8','9','10','11','12','13'], updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 
+issues = red.issue.filter(cf_2='me', status_id=['5','6','9'], updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 
 
-
+#print(list(issues))
 print_list_red(issues)
 print("================================================")
 print("================================================")
-issues.export('csv', savepath='/home/v/python_file', filename='issues21333222.csv', columns=['project','fixed_version','status','subject']) #Экспорт в csv задач
+
+#issues.export('csv', savepath='./result_file/', filename='issues21333222.csv', columns=['project','fixed_version','status','subject']) #Экспорт в csv задач
 
 
 
 ##МУСОР_МУСОР
 
 #print_list_red(red.user.get('current')) #Информация о пользователе
-
-
+# 5 статус это Closed
+# 6 статус это Rejected
+# 9 статус это Testing
+# ,'2','3','4','5','6','8','9','10','11','12','13'
 ## - get all project
 #project_red = red.project.all()
 #print_list_red(project_red)
