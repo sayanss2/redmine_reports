@@ -1,4 +1,5 @@
 import redminelib
+import csv
 
 ## - functions
 def print_list_red (x_arg_input):
@@ -14,15 +15,30 @@ print("================================================")
 print("================================================")
 
 
-# issues = red.issue.filter(cf_2='me', status_id='*', updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 
-issues = red.issue.filter(cf_2='me', status_id=['5','6','9'], updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 
+issues = red.issue.filter(cf_2='me', status_id='!6', updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 6 статус это Rejected
 
-#print(list(issues))
+
+# print(list(issues))
 print_list_red(issues)
 print("================================================")
 print("================================================")
 
+# Выгрузка для linux
+issues.export('csv', savepath='../result_file/', filename='issues21333222.csv', columns=['project','fixed_version','status','subject']) #Экспорт в csv задач
+# Выгрузка для Windows
 #issues.export('csv', savepath='./result_file/', filename='issues21333222.csv', columns=['project','fixed_version','status','subject']) #Экспорт в csv задач
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
