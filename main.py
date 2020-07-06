@@ -1,3 +1,5 @@
+#Главный модуль взаимодействия с redmine для построения отчетов
+
 import redminelib
 import csv
 
