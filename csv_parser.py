@@ -40,14 +40,15 @@ def parser_csv_file():
 
 arg1_info = 'Проект'
 dict_s = {}
+dict_s1 = {}
 for i in parser_csv_file():
     dict_s[i[arg1_info]] = ""
 for i in dict_s.keys():
-    print(i)
+    dict_s1[i] = {}
     for j in parser_csv_file():
         if i in j[arg1_info]:
-            print(j['version'])
-    print("_________________")
+            dict_s1[i][j['version']] = ''
+print(dict_s1)
 
 # print(parser_csv_file(arg_info))
 # for row in parser_csv_file():
