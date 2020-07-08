@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-#module csv parser
+# module csv parser
 
 # lib
-import csv, json
+import csv
 
 csv_file_path = '../result_file/issues21333222.csv'
-
 
 
 # def read_csv_file(number_column):
@@ -35,8 +34,9 @@ def parser_csv_file():
         for i in csv_read:
             lines.append(i)
     return lines
-        # for row in csv_read:
-        #     print(row[_info])
+    # for row in csv_read:
+    #     print(row[_info])
+
 
 arg1_info = 'Проект'
 dict_s = {}
