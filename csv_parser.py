@@ -7,26 +7,6 @@ import csv
 
 csv_file_path = '../result_file/issues21333222.csv'
 
-
-# def read_csv_file(number_column):
-#     with open(csv_file_path, 'r') as csvfile:
-#         csv_read = csv.reader(csvfile, delimiter = ';')
-#        #number = 0
-#         my_list = []
-#         next(csv_read) #переход на следующие значение
-#         for line in csv_read:
-#             print (line[number_column])
-#             my_list.append(line[number_column])
-#     print('Количество элементов = ', len(my_list)) #Длинна списка
-#     print(my_list) # Показать список
-# read_csv_file(2)
-
-
-# with open(csv_file_path, 'r') as csvfile:
-#     csv_read = csv.DictReader(csvfile)
-#     for row in csv_read:
-#         print(row['Версия'])
-
 def parser_csv_file():
     lines = []
     with open(csv_file_path, 'r') as csvfile:
@@ -49,6 +29,38 @@ for i in dict_s.keys():
         if i in j[arg1_info]:
             dict_s1[i][j['version']] = ''
 print(dict_s1)
+
+
+
+
+
+
+
+
+
+
+
+# МУСОР
+
+# def read_csv_file(number_column):
+#     with open(csv_file_path, 'r') as csvfile:
+#         csv_read = csv.reader(csvfile, delimiter = ';')
+#        #number = 0
+#         my_list = []
+#         next(csv_read) #переход на следующие значение
+#         for line in csv_read:
+#             print (line[number_column])
+#             my_list.append(line[number_column])
+#     print('Количество элементов = ', len(my_list)) #Длинна списка
+#     print(my_list) # Показать список
+# read_csv_file(2)
+
+
+# with open(csv_file_path, 'r') as csvfile:
+#     csv_read = csv.DictReader(csvfile)
+#     for row in csv_read:
+#         print(row['Версия'])
+
 
 # print(parser_csv_file(arg_info))
 # for row in parser_csv_file():
