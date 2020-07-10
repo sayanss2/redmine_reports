@@ -14,23 +14,27 @@ def parser_csv_file():
         for i in csv_read:
             lines.append(i)
     return lines
-    # for row in csv_read:
-    #     print(row[_info])
 
 
 arg1_info = 'Проект'
-dict_s = {}
-dict_s1 = {}
+arg2_info = 'Версия'
+arg3_info = 'Статус'
+arg4_info = 'Тема'
+arg5_info = '#'
+dict_s1 = {} #Словарь по Проект:Версия
+dict_s2 = {}
 for i in parser_csv_file():
-    dict_s[i[arg1_info]] = ""
-for i in dict_s.keys():
-    dict_s1[i] = {}
-    for j in parser_csv_file():
-        if i in j[arg1_info]:
-            dict_s1[i][j['Версия']] = ''
+        if str(i[arg1_info]) in dict_s1.keys():
+            pass
+        else:
+            dict_s1[i[arg1_info]] = {}
+            dict_s2 = {} 
+            for j in parser_csv_file():
+                if str(i[arg1_info]) in j[arg1_info]:
+                    dict_s2[j[arg5_info]] = [j[arg4_info], j[arg3_info]]
+                    dict_s1[str(i[arg1_info])][j[arg2_info]] = dict_s2
+
 print(dict_s1)
-
-
 
 
 
