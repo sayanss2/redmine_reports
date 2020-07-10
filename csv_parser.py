@@ -27,7 +27,7 @@ for i in dict_s.keys():
     dict_s1[i] = {}
     for j in parser_csv_file():
         if i in j[arg1_info]:
-            dict_s1[i][j['version']] = ''
+            dict_s1[i][j['Версия']] = ''
 print(dict_s1)
 
 
