@@ -36,14 +36,17 @@ def parser_csv_file():
 
 #print(dict_s1)
 
+
 edibles = ['Проект','Версия', 'Статус', 'Тема', '#']
+dict1 = {}
 
 with open(csv_file_path, 'r') as csvfile:
     csv_read = csv.DictReader(csvfile)
     for row in csv_read:
         for p_vstav in edibles:
-            print(row[p_vstav])
-
+            #print(row[p_vstav], "\n")
+            pd = dict1.update(row[p_vstav])
+            print(pd)
 
 
 
