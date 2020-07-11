@@ -16,25 +16,41 @@ def parser_csv_file():
     return lines
 
 
-arg1_info = 'Проект'
-arg2_info = 'Версия'
-arg3_info = 'Статус'
-arg4_info = 'Тема'
-arg5_info = '#'
-dict_s1 = {} #Словарь по Проект:Версия
-dict_s2 = {}
-for i in parser_csv_file():
-        if str(i[arg1_info]) in dict_s1.keys():
-            pass
-        else:
-            dict_s1[i[arg1_info]] = {}
-            dict_s2 = {} 
-            for j in parser_csv_file():
-                if str(i[arg1_info]) in j[arg1_info]:
-                    dict_s2[j[arg5_info]] = [j[arg4_info], j[arg3_info]]
-                    dict_s1[str(i[arg1_info])][j[arg2_info]] = dict_s2
+# arg1_info = 'Проект'
+# arg2_info = 'Версия'
+# arg3_info = 'Статус'
+# arg4_info = 'Тема'
+# arg5_info = '#'
+# dict_s1 = {} #Словарь по Проект:Версия
+# dict_s2 = {}
+# for i in parser_csv_file():
+#         if str(i[arg1_info]) in dict_s1.keys():
+#             pass
+#         else:
+#             dict_s1[i[arg1_info]] = {}
+#             dict_s2 = {} 
+#             for j in parser_csv_file():
+#                 if str(i[arg1_info]) in j[arg1_info]:
+#                     dict_s2[j[arg5_info]] = [j[arg4_info], j[arg3_info]]
+#                     dict_s1[str(i[arg1_info])][j[arg2_info]] = dict_s2
 
-print(dict_s1)
+#print(dict_s1)
+
+edibles = ['Проект','Версия', 'Статус', 'Тема', '#']
+
+with open(csv_file_path, 'r') as csvfile:
+    csv_read = csv.DictReader(csvfile)
+    for row in csv_read:
+        for p_vstav in edibles:
+            print(row[p_vstav])
+
+
+
+
+
+
+
+
 
 
 
@@ -73,11 +89,5 @@ print(dict_s1)
 
 # with open(csv_file_path, 'r') as csvfile:
 #     csv_read = csv.DictReader(csvfile)
-#     i = 0
 #     for row in csv_read:
-#         print(row)
-#         print('-------------------line_------------------------------------')
-#         i = i + 1
-#         print(i)
 #         print(row['Проект'])
-#         print('-------------------line_------------------------------------')
