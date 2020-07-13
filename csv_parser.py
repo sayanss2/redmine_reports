@@ -5,7 +5,8 @@
 # lib
 import csv
 
-csv_file_path = '../result_file/issues21333222.csv'
+csv_file_path = 'issues21333222.csv'
+
 
 def parser_csv_file():
     lines = []
@@ -21,28 +22,26 @@ arg2_info = 'Версия'
 arg3_info = 'Статус'
 arg4_info = 'Тема'
 arg5_info = '#'
-dict_s1 = {} #Словарь по Проект:Версия
+dict_s1 = {}  # Словарь по Проект:Версия
 dict_s2 = {}
-for i in parser_csv_file():
-        if str(i[arg1_info]) in dict_s1.keys():
-            pass
-        else:
-            dict_s1[i[arg1_info]] = {}
-            dict_s2 = {} 
-            for j in parser_csv_file():
-                if str(i[arg1_info]) in j[arg1_info]:
-                    dict_s2[j[arg5_info]] = [j[arg4_info], j[arg3_info]]
+for i in parser_csv_file():  # Строим Проект
+    if str(i[arg1_info]) in dict_s1.keys():
+        pass
+    else:
+        dict_s1[i[arg1_info]] = {}
+        for j in parser_csv_file():   # Строим Версию
+            if str(i[arg1_info]) in j[arg1_info]:   # Проверка по Проекту
+                if dict_s1.get(str(i[arg1_info])).get(j[arg2_info], {}):
+                    pass
+                else:
+                    for k in parser_csv_file():
+                        if str(i[arg1_info]) in k[arg1_info]:
+                            if str(j[arg2_info]) in k[arg2_info]:
+                                dict_s2[k[arg5_info]] = [k[arg4_info], k[arg3_info]]
                     dict_s1[str(i[arg1_info])][j[arg2_info]] = dict_s2
+                    dict_s2 = {}
 
 print(dict_s1)
-
-
-
-
-
-
-
-
 
 # МУСОР
 
