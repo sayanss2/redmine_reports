@@ -17,6 +17,8 @@ def parser_csv_file():
     return lines
 
 
+
+
 arg1_info = 'Проект'
 arg2_info = 'Версия'
 arg3_info = 'Статус'
@@ -24,6 +26,9 @@ arg4_info = 'Тема'
 arg5_info = '#'
 dict_s1 = {}  # Словарь по Проект:Версия
 dict_s2 = {}
+
+
+
 for i in parser_csv_file():  # Строим Проект
     if str(i[arg1_info]) in dict_s1.keys():
         pass
@@ -42,5 +47,37 @@ for i in parser_csv_file():  # Строим Проект
                     dict_s2 = {}
 #print(dict_s1)
 
+
+
 #  Подсчет количества Проектов
-print(dict_s1.keys())
+#print(dict_s1.keys())
+#print(dict_s1.keys())
+# key = list(dict_s1.keys())[0]
+# val = list(dict_s1.get(key).keys())[0]
+
+
+# for key in dict_s1:
+#     for val in dict_s1.get(key):
+#         print(key, '/', val)
+
+
+def get_cntProjectVersion():
+    cnt = 0
+    for key in dict_s1:
+        for val in dict_s1.get(key):
+            cnt += 1
+    return cnt
+
+
+def get_ProjectVersion():
+    verList = []
+    for key in dict_s1:
+        for val in dict_s1.get(key):
+            verList.append(key+'/'+val)
+    return verList
+
+
+print('Count = ', get_cntProjectVersion())
+print(*get_ProjectVersion(), sep='\n')
+
+print(get_ProjectVersion(0))
