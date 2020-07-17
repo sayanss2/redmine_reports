@@ -79,5 +79,3 @@ def get_ProjectVersion():
 
 print('Count = ', get_cntProjectVersion())
 print(*get_ProjectVersion(), sep='\n')
-
-print(get_ProjectVersion(0))
