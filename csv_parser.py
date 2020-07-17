@@ -76,6 +76,10 @@ def get_ProjectVersion():
             verList.append(key+'/'+val)
     return verList
 
-
 print('Count = ', get_cntProjectVersion())
 print(*get_ProjectVersion(), sep='\n')
+
+# Нужна функция получения списка задач, номера от конткретного Проекта/Версии
+# При этом сначала должен идти http://red.eltex.loc/issues/НОМЕР_ЗАДАЧИ (НАЗВАНИЕ ЗАДАЧИ)
+# Нужна функция получения числа задач Проекта/Версии
+# Нужна функция получения списка статусов от задач из Проекта/Версии
