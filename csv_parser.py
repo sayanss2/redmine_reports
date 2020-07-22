@@ -5,13 +5,13 @@
 # lib
 import csv
 
-csv_file_path = 'issues21333222.csv'
+csv_file_path = '../result_file/issues_control.csv'
 
 
 def parser_csv_file():
     lines = []
     with open(csv_file_path, 'r') as csvfile:
-        csv_read = csv.DictReader(csvfile)
+        csv_read = csv.DictReader(csvfile, delimiter=';')
         for i in csv_read:
             lines.append(i)
     return lines
@@ -21,11 +21,11 @@ arg1_info = 'Проект'
 arg2_info = 'Версия'
 arg3_info = 'Статус'
 arg4_info = 'Тема'
-arg5_info = '#'
+arg5_info = '\ufeff#'
 dict_s1 = {}  # Словарь по Проект:Версия
 dict_s2 = {}
-
 for i in parser_csv_file():  # Строим Проект
+    print(i)
     if str(i[arg1_info]) in dict_s1.keys():
         pass
     else:
@@ -80,9 +80,10 @@ def get_order_project_version(project_input=None, version_input=None):
     order_list = []
     if project_input and version_input:
         for key, value in dict_s1.get(project_input).get(version_input).items():
-            url_value = 'http://red.eltex.loc/issues/' + key + ' (' + value[0] + ')'
+            url_value = 'http://red.eltex.loc/issues/' + key
+            title_value = ' (' + value[0] + ')'
             status_value = value[1]
-            dict_str = {'url': url_value, 'status': status_value}
+            dict_str = {'url': url_value, 'title': title_value, 'status': status_value}
             order_list.append(dict_str)
     return order_list
 
@@ -100,7 +101,7 @@ for i in get_project_version():
     print(i.get('oneline'))  # Вывод наименования Проекта/Версии одной строкой
     print('Count = ', get_cnt_order(i.get('project'), i.get('version')))  # Вывод кол-ва задач в Проекте/Версии
     for j in get_order_project_version(i.get('project'), i.get('version')):
-        print(j.get('url') + ' ' + j.get('status'))  # Вывод ссылки, наименования и статуса задачи в Проекте/Версии
+        print(j.get('url') + ' ' + j.get('title') + ' ' + j.get('status'))  # Вывод ссылки, наименования и статуса задачи в Проекте/Версии
 
 
 # Нужна функция получения списка задач, номера от конткретного Проекта/Версии

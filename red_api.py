@@ -13,12 +13,12 @@ red = redminelib.Redmine('http://red.eltex.loc', key='01ec8ef40c680c06b32e7201df
 #print(' auth +', red.url, '\n','Ваше Имя:', red.user.get('current')) #Получение адреса и имени пользователя
 #print(' Ваш ID:', red.user.get('current').id) #Получение ID пользователя 
 
-issues = red.issue.filter(cf_2='me', status_id='!6', updated_on='>=2020-07-03') # issue_custom_field_values_2 - Quality Assurance 6 статус это Rejected
+issues = red.issue.filter(cf_2='me', status_id='!6', updated_on='>=2020-07-22') # issue_custom_field_values_2 - Quality Assurance 6 статус это Rejected
 
 #print_list_red(issues)
 
 # Выгрузка для linux
-issues.export('csv', savepath='../result_file/', filename='issues21333222.csv', columns=['project','fixed_version','status','subject']) #Экспорт в csv задач
+issues.export('csv', savepath='../result_file/', filename='issues_control2.csv', columns=['project','fixed_version','status','subject']) #Экспорт в csv задач
 
 ##МУСОР_МУСОР
 
