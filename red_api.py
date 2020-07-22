@@ -1,6 +1,7 @@
 # Модуль взаимодействия с redmine для построения отчетов
 
 import redminelib
+import os
 import csv
 
 
@@ -22,8 +23,10 @@ issues = red.issue.filter(cf_2='me', status_id='!6',
 # print_list_red(issues)
 
 # Выгрузка для linux
-issues.export('csv', savepath='artifacts/', filename='issues_control.csv',
-              columns=['project', 'fixed_version', 'status', 'subject'])  # Экспорт в csv задач
+if not os.path.exists('artifacts/'):
+    os.makedirs('artifacts/')
+    issues.export('csv', savepath='artifacts/', filename='issues_control.csv',
+                  columns=['project', 'fixed_version', 'status', 'subject'])  # Экспорт в csv задач
 
 # МУСОР_МУСОР
 
