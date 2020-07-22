@@ -1,10 +1,16 @@
-#Модуль создания шаблона .doc файла для построения отчета
+# Модуль создания шаблона .doc файла для построения отчета
 
 # lib
 from jinja2 import Template
+import csv_parser
 
-#xml_body = open('../result_file/xml/test_filef.xml').read()
-xml_body = open('../result_file/xml/body_template.xml').read()
+xml_body = open('template/template.fodt').read()
+# xml_body = open('../result_file/xml/body_template.xml').read()
 xml_body_template = Template(xml_body)
-print(xml_body_template.render(xml_project_name='Eltex-SC (IoT-Core)', xml_issue_name='Обновить smart3.eltex-co.ru до версии 1.15 ядро 870'))
+output_from_parsed_template = xml_body_template.render(xml_project_name=csv_parser.get_project_version(),
+                                                       xml_count_project=csv_parser.get_cnt_project_version(),
+                                                       xml_count_issue=csv_parser.get_cnt_order,
+                                                       xml_issues_name=csv_parser.get_order_project_version)
 
+with open('artifacts/r_xml_file_fodt.fodt', "w") as f:
+    f.write(output_from_parsed_template)
