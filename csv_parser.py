@@ -5,7 +5,7 @@
 # lib
 import csv
 
-csv_file_path = '../result_file/issues_control.csv'
+csv_file_path = 'artifacts/issues_control.csv'
 
 
 def parser_csv_file():
@@ -25,7 +25,6 @@ arg5_info = '\ufeff#'
 dict_s1 = {}  # Словарь по Проект:Версия
 dict_s2 = {}
 for i in parser_csv_file():  # Строим Проект
-    print(i)
     if str(i[arg1_info]) in dict_s1.keys():
         pass
     else:
@@ -101,10 +100,6 @@ for i in get_project_version():
     print(i.get('oneline'))  # Вывод наименования Проекта/Версии одной строкой
     print('Count = ', get_cnt_order(i.get('project'), i.get('version')))  # Вывод кол-ва задач в Проекте/Версии
     for j in get_order_project_version(i.get('project'), i.get('version')):
-        print(j.get('url') + ' ' + j.get('title') + ' ' + j.get('status'))  # Вывод ссылки, наименования и статуса задачи в Проекте/Версии
+        print(j.get('url') + ' ' + j.get('title') + ' ' + j.get('status'))  # Вывод ссылки, наименования и статуса
+        # задачи в Проекте/Версии
 
-
-# Нужна функция получения списка задач, номера от конткретного Проекта/Версии
-# При этом сначала должен идти http://red.eltex.loc/issues/НОМЕР_ЗАДАЧИ (НАЗВАНИЕ ЗАДАЧИ)
-# Нужна функция получения числа задач Проекта/Версии
-# Нужна функция получения списка статусов от задач из Проекта/Версии
