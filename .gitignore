@@ -130,3 +130,7 @@ dmypy.json
 
 # ignore .vscode
 .vscode
+
+/static
+/templates
+/artifacts
