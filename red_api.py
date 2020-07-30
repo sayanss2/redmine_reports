@@ -1,19 +1,18 @@
 # Модуль взаимодействия с redmine для построения отчетов
 
-import redminelib
+import redminelib  # install from pip "redminelib"
 import os
-import csv
 import shutil
 import datetime
-from dateutil.relativedelta import relativedelta
+from dateutil.relativedelta import relativedelta  # install from pip "python-dateutil"
 
 # - functions
 # def print_list_red(x_arg_input):
 #     for data in x_arg_input:
 #         print(data)
 today = datetime.date.today()
-mouth_report =today + relativedelta(months=-1)
-mouth_plan =today + relativedelta(months=+1)
+mouth_report = today + relativedelta(months=-1)
+mouth_plan = today + relativedelta(months=+1)
 
 # - auth
 red = redminelib.Redmine('http://red.eltex.loc', key='01ec8ef40c680c06b32e7201dfd80c328803ee4b')
@@ -22,7 +21,7 @@ red = redminelib.Redmine('http://red.eltex.loc', key='01ec8ef40c680c06b32e7201df
 
 # issue_custom_field_values_2 - Quality Assurance 6 статус это Rejected
 issues = red.issue.filter(cf_2='me', status_id='!6',
-                          updated_on='>='+str(mouth_report))  
+                          updated_on='>=' + str(mouth_report))
 
 # print_list_red(issues)
 

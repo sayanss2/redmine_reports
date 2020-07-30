@@ -1,14 +1,14 @@
 # Модуль создания шаблона .doc файла для построения отчета
 
 # lib
-from jinja2 import Template
+from jinja2 import Template   # install from pip "Jinja2"
 import csv_parser
 import red_api
 
 months_number = {1:'Январь', 2:'Февраль', 3:'Март', 4:'Апрель', 5:'Май', 6:'Июнь', 7:'Июль', 8:'Август', 9:'Сентябрь', 10:'Октябрь', 11:'Ноябрь', 12:'Декабрь'}
 
 
-xml_body = open('template/template.fodt').read()
+xml_body = open('tReport/template.fodt').read()
 xml_body_template = Template(xml_body)
 output_from_parsed_template = xml_body_template.render(xml_project_name=csv_parser.get_project_version(), 
                                                         xml_count_project=csv_parser.get_cnt_project_version(),
