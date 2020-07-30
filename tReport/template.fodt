@@ -1517,11 +1517,11 @@
 {% for i in xml_project_name %}
 
 <table:table-row table:style-name="Таблица1.1"> <!-- СТРОКА НАЧАЛО-->   
-      <table:table-cell table:style-name="Таблица1.A2" table:number-rows-spanned="{{ xml_count_issue(i.get('project'), i.get('version')) }}" office:value-type="string"> 
+      <table:table-cell table:style-name="Таблица1.A2" table:number-rows-spanned="{{ xml_count_issue(xml_dict_s1, i.get('project'), i.get('version')) }}" office:value-type="string">
             <text:p text:style-name="P77">{{ i.get('oneline') }}</text:p>
       </table:table-cell>
 
-{% for j in xml_issues_name(i.get('project'), i.get('version')) %}
+{% for j in xml_issues_name(xml_dict_s1, i.get('project'), i.get('version')) %}
       {% if not loop.first %}
         <table:table-row table:style-name="Таблица1.1">
         <table:covered-table-cell/>
