@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>AOGOIS - Автоматическое построение отчетов</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/prism/prism.css') }}">
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head> 
+
+<body data-spy="scroll">
+    
+    
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a class="scrollto">
+                    <span class="logo-title">AOGOIS - Автоматическое построение отчетов</span>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->
+        </div>
+    </header><!--//header-->
+    
+    <!-- ******PROMO****** -->
+    <section id="promo" class="promo section offset-header">
+        <div class="container text-center">
+            <h2 class="title">AO<span class="highlight">GOIS</span></h2>
+            <p class="intro">Автоматически сгенерировать отчет с REDMINE за месяц в формате fodt</p>
+            <div class="btns">
+
+                   <form action="/process_data" method="POST">
+            <p><input class="input_keyapi" type="text" name="api_data" placeholder="Введите ключ доступа к API" size="38" maxlength="40" /></p>
+            <p>
+                <button class="btn btn-cta-secondary" type="submit">Отправить</button> 
+                <button class="btn btn-cta-primary" type="reset">Отмена</button>
+            </p>
+                </form>
+                
+                {% block download %}{% endblock %}
+                <p>{{ message }}</p>
+
+            </div>
+            <div class="list_footer">
+            <ul class="meta list-inline">
+                <li><a href="https://github.com/enohpi/aogois" target="_blank">Посмотреть на GitHub</a></li>
+                <li><a href="http://red.eltex.loc/my/account" target="_blank">Ключ доступа к API</a></li>
+            </ul><!--//meta-->
+            </div>
+
+        </div><!--//container-->
+    </section><!--//promo-->
+           
+     
+    <!-- Javascript -->          
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/jquery-1.11.3.min.js') }}"></script>   
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/jquery.easing.1.3.js') }}"></script>   
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>     
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js') }}"></script> 
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/prism/prism.js') }}"></script>    
+    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/main.js') }}"></script>           
+</body>
+</html> 
+
