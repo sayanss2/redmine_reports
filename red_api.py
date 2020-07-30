@@ -17,7 +17,7 @@ mouth_plan = today + relativedelta(months=+1)
 # - auth
 red = redminelib.Redmine('http://red.eltex.loc', key='01ec8ef40c680c06b32e7201dfd80c328803ee4b')
 # print(' auth +', red.url, '\n','Ваше Имя:', red.user.get('current')) #Получение адреса и имени пользователя
-# print(' Ваш ID:', red.user.get('current').id) #Получение ID пользователя
+# print(' Ваш ID:', red.user.get('current').firstname) # Получение ID пользователя
 
 # issue_custom_field_values_2 - Quality Assurance 6 статус это Rejected
 issues = red.issue.filter(cf_2='me', status_id='!6',
