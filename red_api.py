@@ -25,7 +25,7 @@ def put_api(red_api_key: object, gen_csv: object = False, start_date: object = N
         if not os.path.exists('artifacts/'):
             os.makedirs('artifacts/')
             issues.export('csv', savepath='artifacts/', filename='issues_control.csv',
-                          columns=['project', 'fixed_version', 'status', 'subject'])  # Экспорт в csv задач
+                          columns=['project', 'fixed_version', 'status', 'subject', 'closed_on'])  # Экспорт в csv задач
             # print_list_red(red.user.get('current')) #Информация о пользователе
             # 5 статус это Closed
             # 6 статус это Rejected
