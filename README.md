@@ -1,6 +1,6 @@
 # aogois
 # Автоматическое построение отчетов за месяц REDMINE
-# install from pip redminelib python-dateutil Jinja2
+
 # For Debian-base:
 sudo apt install python3-pip
 
