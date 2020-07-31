@@ -30,9 +30,12 @@ def parse_csv():
                             if str(i[arg1_info]) in k[arg1_info]:
                                 if str(j[arg2_info]) in k[arg2_info]:
                                     dict_s2[k[arg5_info]] = [k[arg4_info], k[arg3_info]]
-                        dict_s1[str(i[arg1_info])][j[arg2_info]] = dict_s2
+                        if str(j[arg2_info]) == '':
+                            dict_s1[str(i[arg1_info])][' '] = dict_s2
+                        else:
+                            dict_s1[str(i[arg1_info])][j[arg2_info]] = dict_s2
                         dict_s2 = {}
-    return dict_s1, dict_s2
+    return dict_s1
 
 
 def parser_csv_file():
@@ -61,7 +64,10 @@ def get_project_version(dict_s1, return_sep=None):
     else:
         for key in dict_s1:
             for val in dict_s1.get(key):
-                line_str = key + '/' + val
+                if val == ' ':
+                    line_str = key
+                else:
+                    line_str = key + '/' + val
                 dict_str = {'oneline': line_str, 'project': key, 'version': val}
                 ver_list.append(dict_str)
     return ver_list
