@@ -26,11 +26,9 @@ def create_report(red_api_key: object) -> object:
                                                            xml_month_plan=months_number[red_api.mouth_plan.month],
                                                            xml_dict_s1=dict_s1)
 
-    months_number_new_year = ""
-    year_new_year = ""
-
     try:
-        months_number_new_year = months_number[red_api.today.month + 1]
+        months_number_new_year = str(months_number[red_api.today.month + 1])
+        year_new_year = str(red_api.today.year)
     except KeyError:
         months_number_new_year = str(months_number[1])
         year_new_year = str(red_api.today.year + 1)
