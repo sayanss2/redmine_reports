@@ -26,8 +26,17 @@ def create_report(red_api_key: object) -> object:
                                                            xml_month_plan=months_number[red_api.mouth_plan.month],
                                                            xml_dict_s1=dict_s1)
 
-    name_file = str(red.user.get('current').lastname) + '_План_на_' + str(
-        months_number[red_api.today.month + 1]) + '_' + str(red_api.today.year) + '.fodt'
+    months_number_new_year = ""
+    year_new_year = ""
+
+    try:
+        months_number_new_year = months_number[red_api.today.month + 1]
+    except KeyError:
+        months_number_new_year = str(months_number[1])
+        year_new_year = str(red_api.today.year + 1)
+        # print(months_number_test)
+
+    name_file = str(red.user.get('current').lastname) + '_План_на_' + months_number_new_year + '_' + year_new_year + '.fodt'
     with open('artifacts/' + name_file, "w") as f:
         f.write(output_from_parsed_template)
     return print(os.path.dirname(os.path.abspath(name_file)) + '/artifacts/' + name_file)
