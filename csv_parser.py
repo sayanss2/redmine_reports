@@ -92,6 +92,11 @@ def get_order_project_version(dict_s1, project_input=None, version_input=None, c
     if project_input and version_input:
         for key, value in dict_s1.get(project_input).get(version_input).items():
             url_value = 'http://red.eltex.loc/issues/' + key
+            char_to_replace = {'&': '&amp;',
+                               '<': '&lt;',
+                               '>': '&gt;'}
+            for keyTitle, valueTitle in char_to_replace.items():
+                value[0] = value[0].replace(keyTitle, valueTitle)
             title_value = ' (' + value[0] + ')'
             try:
                 status_value = status_translate[value[1]]
